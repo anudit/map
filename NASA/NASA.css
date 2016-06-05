@@ -79,9 +79,9 @@ p, span {
 	top: 35%;
 	left: 50%;
 	margin-top: -100px;
-	margin-left: -200px;
+	margin-left: -250px;
 	padding:20px;
-	width: 400px;
+	width: 500px;
 	text-align: center;
 	background-color: rgba(34,34,34,0.7);
 }
@@ -90,15 +90,15 @@ p, span {
 	position: absolute;
 	top: 27%;
 	left: 50%;
-	margin-left: -200px;
+	margin-left: -250px;
 	padding:20px;
-	width: 400px;
+	width: 500px;
 	text-align: center;
 	background-color: rgba(34,34,34,0.7);
 }
 
 #infoContainer p {
-	font-weight: normal;
+	font-weight: 600;
 	margin-bottom: 7px;
 }
 
