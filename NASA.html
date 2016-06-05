@@ -1,3 +1,4 @@
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<!-- expires immediately while developing -->
@@ -7,9 +8,9 @@
 
 		<meta charset="utf-8" />
 
-		<link rel="icon" href="http://cartography.oregonstate.edu/favicon.ico"  type="image/x-icon" />
-		<link rel="shortcut icon" href="http://cartography.oregonstate.edu/favicon.ico" type="image/x-icon" />
-		<link rel="apple-touch-icon" href= "http://cartography.oregonstate.edu/apple-touch-icon.png" />
+		<link rel="icon" href="favicon.ico"  type="image/x-icon" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="apple-touch-icon" href= "apple-touch-icon.png" />
 
 		<!-- stop doubletap from zooming, and let the multitouch gestures work with Hammer.js. -->
 		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" />
@@ -17,9 +18,9 @@
 		<title>NASA: A Year In The Life Of Earth's CO2</title>
 
 		<!--Google font directory CSS link to embed the font-->
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600&subset=latin' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600&subset=latin' rel='stylesheet' type='text/css'>
 		<!-- Font Awesome -->
-		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 		<script type="text/javascript" src="lib/hammer.min.js"></script>
 		<script type="text/javascript" src="lib/modestmaps/modestmaps.js"></script>
@@ -71,17 +72,17 @@
 			<p>
 				This interactive map is unfortunately not available on your device, because HTML5 Video, WebGL or support for large video textures are
 				not available. Please use a recent version of Firefox or Google Chrome, or see the original version of the
-				<a href="http://svs.gsfc.nasa.gov/goto?11719">carbon dioxide map</a> at the NASA Goddard Space Flight Center website.
+				<a href="https://svs.gsfc.nasa.gov/goto?11719">carbon dioxide map</a> at the NASA Goddard Space Flight Center website.
 			</p>
-			<a href="http://svs.gsfc.nasa.gov/goto?11719 "><img src="NASA/still.png" alt="Map preview"></a>
+			<a href="https://svs.gsfc.nasa.gov/goto?11719 "><img src="NASA/still.png" alt="Map preview"></a>
 		</div>
 		<div id="ieFailContainer">
 			<h1>A Year In The Life Of Earth's CO<sub>2</sub></h1>
 			<p>
 				This interactive map is currently not available for Internet Explorer. Please use a recent version of Firefox or Google Chrome, or
-				see the original version of the <a href="http://svs.gsfc.nasa.gov/goto?11719">carbon dioxide map</a> at the NASA Goddard Space Flight Center website.
+				see the original version of the <a href="https://svs.gsfc.nasa.gov/goto?11719">carbon dioxide map</a> at the NASA Goddard Space Flight Center website.
 			</p>
-			<a href="http://svs.gsfc.nasa.gov/goto?11719 "><img src="NASA/still.png" alt="Map preview"></a>
+			<a href="https://svs.gsfc.nasa.gov/goto?11719 "><img src="NASA/still.png" alt="Map preview"></a>
 		</div>
 		<div id="container">
 			<div id="spinningWheelContainer" class="panel">
@@ -92,10 +93,13 @@
 
 			<div id="startInfoContainer" class="panel">
 				<p class="mouse">
-					Click and drag to adjust the center of the map.
+					To navigate in time, click on the circle on the left.
 				</p>
 				<p class="mouse">
-					Use the scroll wheel or the slider to zoom in and out.
+					To adjust the center of the map, click and drag on the map.
+				</p>
+				<p class="mouse">
+					To zoom in and out, use the scroll wheel or the slider on the right.
 				</p>
 				<p>
 					<i id="closeStartInfoButton" class="fa fa-times" title="close"></i>
@@ -104,23 +108,27 @@
 
 			<div id="infoContainer" class="panel">
 				<p class="mouse">
-					Click and drag to adjust the center of the map.
+					To navigate in time, click on the circle on the left.
 				</p>
 				<p class="mouse">
-					Use the scroll wheel or the slider to zoom in and out.
+					To adjust the center of the map, click and drag on the map.
+				</p>
+				<p class="mouse">
+					To zoom in and out, use the scroll wheel or the slider on the right.
 				</p>
 				<p class="mouse">
 					Double-click the map to zoom in.
 				</p>
 				<p>
+					<a href="https://svs.gsfc.nasa.gov/goto?11719">Read more on nasa.gov</a> about this CO<sub>2</sub> video map.
+				</p>
+				<p>
 					<i id="closeInfoButton" class="fa fa-times" title="close"></i>
 				</p>
-				<p class="mouse">
-					This map shows all areas with correct relative size.
-				</p>
 				<p id="osu">
-					Interactive map by the <a href="http://cartography.oregonstate.edu/">Cartography and Geovisualization Group</a>, Oregon State University
-					<br/>Bernhard Jenny, Bojan Šavrič, Johannes Liem
+					Interactive video map by the <a href="https://www.google.com/search?q=%http://cartography.oregonstate.edu&btnI=Im+Feeling+Lucky">Cartography and Geovisualization Group</a>, Oregon State University
+					<br/>
+					Bernhard Jenny, Bojan Šavrič, Johannes Liem
 					<br/>
 					<br/>
 					Video by NASA Goddard Space Flight Center
@@ -128,12 +136,23 @@
 					William M. Putman (NASA), Kayvon Sharghi (USRA), Aaron E. Lepsch (ADNET Systems, Inc.), Patrick Lynch (Wyle Information Systems)
 					<br/>
 					<br/>
-					<a href="http://svs.gsfc.nasa.gov/goto?11719">Read more</a> about this CO<sub>2</sub> video map.
+					<i id="trophy" class="fa fa-trophy fa-lg" title="Awards"></i>
+					</br>
+					2016 <a href="https://www.nsf.gov/news/special_reports/scivis/winners_2016.jsp#interactive">U.S. National Science Foundation NSF: The Vizzies Visualization Challenge – Interactive</a>
+					</br>
+					2015 <a href="https://www.cartogis.org/awards/winners2014.php">CaGIS Map Design Competition: Interactive Digital</a>
+					</br>
+					2015 <a href="https://www.cartography.org.uk/default.asp?contentID=1169">Avenza Award for Electronic Mapping</a> Highly Commended (2nd place) by the British Cartographic Society
+					<br/>
+					<br/>
+					<a href="https://dx.doi.org/10.1080/17445647.2016.1157323">More information</a> about interactive video maps and how this map was created
 					<br/>
 					<br/>
 					Code on <a href="https://github.com/OSUCartography/adaptive-composite-map-projections">GitHub</a>
 					<br/>
-					&copy; 27 Dec 2014
+					This map shows all areas with correct relative size.
+					<br/>
+					&copy; 27 Dec 2014, minor update 8 Jan 2016
 				</p>
 
 			</div>
@@ -166,7 +185,7 @@
 			<div id="headerContainer">
 				<h1>A Year In The Life Of Earth's CO<sub>2</sub></h1>
 				<!--<p id="subtitle">
-					An interactive version of the <a href="http://svs.gsfc.nasa.gov/goto?11719">carbon dioxide map by  NASA's Goddard Space Flight Center</a>.
+				An interactive version of the <a href="http://svs.gsfc.nasa.gov/goto?11719">carbon dioxide map by  NASA's Goddard Space Flight Center</a>.
 				</p>-->
 
 				<div id="controlContainer">
@@ -193,7 +212,7 @@
 					<p>
 						Carbon Dioxide Column Concentration <span class="units" title="parts per million by volume">(ppmv)</span>
 					</p>
-					<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="424.5px" height="40.833px" viewBox="0 0 424.5 40.833" style="enable-background:new 0 0 424.5 40.833;" xml:space="preserve">
+					<svg version="1.0" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" width="424.5px" height="40.833px" viewBox="0 0 424.5 40.833" style="enable-background:new 0 0 424.5 40.833;" xml:space="preserve">
 						<g id="color" class="colorRamp">
 
 							<image style="overflow:visible;" width="521" height="11" xlink:href="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABQAAD/4QMtaHR0cDov
@@ -273,7 +292,7 @@
 					<p>
 						Carbon Monoxide Column Abundance <span class="units">(1.0e18 molec cm<sup>-2</sup>)</span>
 					</p>
-					<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="424.5px" height="40.833px" viewBox="0 0 424.5 40.833" style="enable-background:new 0 0 424.5 40.833;" xml:space="preserve">
+					<svg version="1.0" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" width="424.5px" height="40.833px" viewBox="0 0 424.5 40.833" style="enable-background:new 0 0 424.5 40.833;" xml:space="preserve">
 						<g id="color" class="colorRamp">
 
 							<image style="overflow:visible;" width="521" height="11" xlink:href="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABQAAD/4QMtaHR0cDov
@@ -347,17 +366,17 @@
 				</div>
 			</div>
 
-			<video id="video1" class="video" preload="auto" autoplay >
+			<video id="video1" class="video" crossorigin="anonymous" preload="auto" autoplay >
 				<source id="videoSourceMP4" src="https://d2p916zd5jwnza.cloudfront.net/NASA/1024x512.mp4" type="video/mp4"/>
 				<source id="videoSourceWEBM" src="https://d2p916zd5jwnza.cloudfront.net/NASA/1024x512.webm" type="video/webm"/>
-				Your browser does not support HTML5 video. Please use recent version of Firefox or Google Chrome.
+				Your browser does not support HTML5 video. Please use a recent version of Google Chrome.
 			</video>
 
 		</div><!-- container -->
 
 		<div id ="logoContainer">
-			<a href="http://cartography.oregonstate.edu/" title="Cartography and Geovisualization Group at Oregon State University">
-			<svg id="cartoGroupLogo" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			<a href="https://www.google.com/search?q=%http://cartography.oregonstate.edu&btnI=Im+Feeling+Lucky" title="Cartography and Geovisualization Group at Oregon State University">
+			<svg id="cartoGroupLogo" version="1.0" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px"
 			width="65px" height="65px" viewBox="0 0 72 72" style="enable-background:new 0 0 72 72;" xml:space="preserve">
 				<g>
 					<defs>
@@ -430,8 +449,8 @@
 					v3.838H57.566z M58.841,48.159h0.812c1.177,0,1.751-0.532,1.751-1.709c0-1.232-0.715-1.695-1.905-1.695h-0.658V48.159z"/>
 				</g>
 			</svg> </a>
-			<a href="http://svs.gsfc.nasa.gov/goto?11719" title="More about the NASA video">
-			<svg xmlns="http://www.w3.org/2000/svg" height="65px" width="78.54px" id="nasaLogo" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			<a href="https://svs.gsfc.nasa.gov/goto?11719" title="More about the NASA video">
+			<svg xmlns="https://www.w3.org/2000/svg" height="65px" width="78.54px" id="nasaLogo" version="1.0" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px"
 			viewBox="0 0 290 240" style="enable-background:new 0 0 72 72;" xml:space="preserve">
 				<path d="m252.51,120c0,64.618-53.234,117.8-117.92,117.8-64.685,0-117.92-53.185-117.92-117.8,0-64.622,51.99-117.8,117.92-117.8,63.437,0,117.92,53.181,117.92,117.8" opacity="0.75" fill-rule="nonzero" fill="#1a5dad"/>
 				<path d="m161.19,182c50.379,20.724,41.636-31.647,14.782-71.747-15.22-22.718-35.07-41.645-47.59-50.78-41.513-30.298-67.14-11.922-37.826,47.83,9.4777,19.319,21.651,32.358,31.159,44.648,7.261,9.3828,21.404,14.081,16.422,18.534-5.6144,5.0207-19.209-17.124-19.209-17.124-10.04-12.11-19.61-25.03-29.473-42.76-22.535-40.499-19.286-81.833,21.503-63.828,34.615,15.288,67.678,58.166,80.971,88.616,6.1401,14.059,22.88,69.692-30.437,47.2" fill-rule="nonzero" fill="#FFF"/>
