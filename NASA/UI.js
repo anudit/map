@@ -78,7 +78,11 @@ $(window).load(function() {
 	var isTouchDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
 	    isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent),
 	    isIE = navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1,
-	    supportsHTMLVideo = !!document.createElement('video').canPlayType;
+	// http://stackoverflow.com/questions/7944460/detect-safari-browser
+	    isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent),
+	    supportsHTMLVideo = !!document.createElement('video').canPlayType,
+	    src,
+	    fileName;
 
 	// IE does not compile our GLSL shaders. Hide map, display warning, and return.
 	if (isIE) {
@@ -94,6 +98,16 @@ $(window).load(function() {
 		document.getElementById("video1").pause();
 		showFail();
 		return;
+	}
+
+	// Safari does not support cross-origin video texture in WebGL
+	// http://krpano.com/ios/bugs/ios8-webgl-video-cors/
+	// use slow same-origin videos on Safari
+	if (isSafari || isIOS) {
+		var src = document.getElementById('videoSourceMP4').src;
+		var mp4FileName = src.substring(src.lastIndexOf("/") + 1, src.length);
+		document.getElementById('videoSourceMP4').src = "NASA/" + mp4FileName;
+		document.getElementById('video1').removeAttribute('crossorigin');
 	}
 
 	function updateZoomSlider() {
@@ -126,16 +140,21 @@ $(window).load(function() {
 	}
 
 	function projectionChangeListener(map) {
+		//console.log(map.updateProjection().toString());
 		updateZoomSlider();
 	}
 
 	function changeVideoSource(videoSource) {
 		var video = document.getElementById('video1');
+		var src = document.getElementById('videoSourceMP4').src;
+		var root = src.substring(0, src.lastIndexOf("/") + 1);
+		src = root + videoSource;
 
 		// http://stackoverflow.com/questions/12151606/setattribute-and-video-src-for-changing-video-tag-source-not-working-in-ie9
 		video.pause();
-		document.getElementById('videoSourceMP4').src = videoSource + ".mp4";
-		document.getElementById('videoSourceWEBM').src = videoSource + ".webm";
+		document.getElementById('videoSourceMP4').src = src + ".mp4";
+		document.getElementById('videoSourceWEBM').src = src + ".webm";
+		video.setAttribute('crossorigin', 'anonymous');
 		video.load();
 		playAndUpdateGUI();
 	}
@@ -200,7 +219,7 @@ $(window).load(function() {
 				}
 			}
 			if (videoName !== null) {
-				changeVideoSource("NASA/" + videoName);
+				changeVideoSource(videoName);
 			} else {
 				// change layer visibility
 				if (map !== undefined) {
@@ -235,6 +254,10 @@ $(window).load(function() {
 
 	$("#dial").knob({
 		height : 120,
+
+		'mousemove' : function(v) {
+			console.log("move");
+		},
 
 		// called when the mouse is released, but also when
 		// trigger() is called after each video timeupdate event
@@ -292,6 +315,11 @@ $(window).load(function() {
 				// segmented outter circle
 				this.g.lineWidth = outterLineWidth;
 				this.g.globalAlpha = "1";
+				// increase line width if mouse is over the canvas
+				if ($("#dial").data("mouseover") === true) {
+					this.g.lineWidth *= 2.5;
+				}
+
 				this.g.strokeStyle = this.o.fgColor;
 				this.g.lineCap = 'butt';
 				for ( i = 0; i < 12; i = i + 1) {
@@ -303,6 +331,7 @@ $(window).load(function() {
 				}
 
 				// previous value arc
+				this.g.globalAlpha = "1";
 				this.g.lineWidth = this.lineWidth;
 				if (this.o.displayPrevious) {
 					pa = this.arc(this.v);
@@ -321,6 +350,13 @@ $(window).load(function() {
 				return false;
 			}
 		}
+	});
+
+	// set flag if mouse is over dial control
+	$("#dialContainer").hover(function() {
+		$("#dial").data("mouseover", true);
+	}, function() {
+		$("#dial").data("mouseover", false);
 	});
 
 	// make heavily styled elements visible after they have been configured
@@ -450,7 +486,7 @@ $(window).load(function() {
 		});
 
 	}, 10000);
-	
+
 	$('#closeStartInfoButton').on("click", function(e) {
 		$('#startInfoContainer').hide();
 	});
