@@ -1,3 +1,4 @@
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<!-- expires immediately while developing -->
@@ -29,11 +30,20 @@
 		<script type="text/javascript" src="NASA/AdaptiveCompositeMap.js"></script>
 		<script type="text/javascript" src="NASA/MapContent.js"></script>
 
+		<!-- jQuery CDN-->
+		<!--
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+		<script src="http://code.jquery.com/jquery-2.1.0.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>-->
 
 		<!-- jQuery local-->
 		<link rel="stylesheet" href="lib/jquery/ui/1.10.4/themes/smoothness/jquery-ui.css" />
 		<script src="lib/jquery/jquery-2.1.0.js"></script>
 		<script src="lib/jquery/ui/1.10.4/jquery-ui.js"></script>
+		<!--
+		<link rel="stylesheet" type="text/css" href="NASA/jui_dropdown/jquery.jui_dropdown.css">
+		<script type="text/javascript" src="NASA/jui_dropdown/jquery.jui_dropdown.min.js"></script>
+		-->
 
 		<!-- Twitter Bootstrap -->
 		<link rel="stylesheet" href="NASA/bootstrap.min.css" type="text/css"/>
@@ -44,6 +54,12 @@
 		<!-- WebGL utilities -->
 		<script type="text/javascript" src="lib/J3DI.js"></script>
 		<script type="text/javascript" src="lib/J3DIMath.js"></script>
+
+		<!-- WebGL debugging -->
+		<!--
+		<script type="text/javascript" src="http://benvanik.github.com/WebGL-Inspector/core/embed.js"></script>
+		<script src="https://www.khronos.org/registry/webgl/sdk/debug/webgl-debug.js"></script>
+		-->
 
 		<link rel="stylesheet" href="NASA/NASA.css">
 		<script type="text/javascript" src="NASA/UI.js"></script>
@@ -74,10 +90,63 @@
 				</p>
 			</div>
 
+			<div id="infoContainer" class="panel">
+				<p class="mouse">
+					To navigate in time, click on the circle on the left.
+				</p>
+				<p class="mouse">
+					To adjust the center of the map, click and drag on the map.
+				</p>
+				<p class="mouse">
+					To zoom in and out, use the scroll wheel or the slider on the right.
+				</p>
+				<p class="mouse">
+					Double-click the map to zoom in.
+				</p>
+				<p>
+					<a href="https://svs.gsfc.nasa.gov/goto?11719">Read more on nasa.gov</a> about this CO<sub>2</sub> video map.
+				</p>
+				<p>
+					<i id="closeInfoButton" class="fa fa-times" title="close"></i>
+				</p>
+				<p id="osu">
+					Interactive video map by the <a href="https://www.google.com/search?q=%http://cartography.oregonstate.edu&btnI=Im+Feeling+Lucky">Cartography and Geovisualization Group</a>, Oregon State University
+					<br/>
+					Bernhard Jenny, Bojan Šavrič, Johannes Liem
+					<br/>
+					<br/>
+					Video by NASA Goddard Space Flight Center
+					<br/>
+					William M. Putman (NASA), Kayvon Sharghi (USRA), Aaron E. Lepsch (ADNET Systems, Inc.), Patrick Lynch (Wyle Information Systems)
+					<br/>
+					<br/>
+					<i id="trophy" class="fa fa-trophy fa-lg" title="Awards"></i>
+					</br>
+					2016 <a href="https://www.nsf.gov/news/special_reports/scivis/winners_2016.jsp#interactive">U.S. National Science Foundation NSF: The Vizzies Visualization Challenge – Interactive</a>
+					</br>
+					2015 <a href="https://www.cartogis.org/awards/winners2014.php">CaGIS Map Design Competition: Interactive Digital</a>
+					</br>
+					2015 <a href="https://www.cartography.org.uk/default.asp?contentID=1169">Avenza Award for Electronic Mapping</a> Highly Commended (2nd place) by the British Cartographic Society
+					<br/>
+					<br/>
+					<a href="https://dx.doi.org/10.1080/17445647.2016.1157323">More information</a> about interactive video maps and how this map was created
+					<br/>
+					<br/>
+					Code on <a href="https://github.com/OSUCartography/adaptive-composite-map-projections">GitHub</a>
+					<br/>
+					This map shows all areas with correct relative size.
+					<br/>
+					&copy; 27 Dec 2014, minor update 8 Jan 2016
+				</p>
+
+			</div>
+
 			<div id="map-and-zoom-slider">
 				<div id="zoom-Slider-Container">
 					<div id="zoom-slider" title="Map zoom"></div>
-					
+					<div id="infoButtonContainer">
+						<i id="infoButton" class="fa fa-info fa-fw" title="Map navigation and info about this map"></i>
+					</div>
 					<div id="mapLayersButtonContainer" title="Show and hide map layers">
 						<select id="mapLayers" multiple="multiple">
 							<optgroup label="Map Layers">
@@ -98,7 +167,7 @@
 			</div>
 
 			<div id="headerContainer">
-				<h1>A supercomputer model of Earth's CO<sub>2</sub> levels in 2006</h1>
+				<h1>A Year In The Life Of Earth's CO<sub>2</sub></h1>
 				<!--<p id="subtitle">
 				An interactive version of the <a href="http://svs.gsfc.nasa.gov/goto?11719">carbon dioxide map by  NASA's Goddard Space Flight Center</a>.
 				</p>-->
